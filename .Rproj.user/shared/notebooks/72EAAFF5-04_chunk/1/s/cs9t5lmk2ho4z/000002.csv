@@ -1,0 +1,39 @@
+"0","# load packages"
+"0","library(tidyverse)"
+"0","# Loading the Boston city payroll"
+"0","payroll <- read_csv(""data/bostonpayroll2013.csv"")"
+"2","Missing column names filled in: 'X15' [15], 'X16' [16]"
+"2","Parsed with column specification:
+cols(
+  NAME = col_character(),
+  TITLE = col_character(),
+  DEPARTMENT = col_character(),
+  REGULAR = col_character(),
+  RETRO = col_character(),
+  OTHER = col_character(),
+  OVERTIME = col_character(),
+  INJURED = col_character(),
+  DETAIL = col_character(),
+  QUINN = col_character(),
+  `TOTAL EARNINGS` = col_character(),
+  Community = col_character(),
+  ZIPCode = col_integer(),
+  State = col_character(),
+  X15 = col_character(),
+  X16 = col_character()
+)
+"
+"0","# Cleaning up column names"
+"0","colnames(payroll) <- make.names(colnames(payroll))"
+"0","# Cleaning out dollar signs and commas so it'll convert to numbers correctly"
+"0","payroll$TOTAL.EARNINGS <- gsub(""\\$"", """", payroll$TOTAL.EARNINGS)"
+"0","payroll$TOTAL.EARNINGS <- gsub("","", """", payroll$TOTAL.EARNINGS)"
+"0","payroll$TOTAL.EARNINGS <- as.numeric(payroll$TOTAL.EARNINGS)"
+"0","# Narrowing down the scope of the data"
+"0","payroll_total <- select(payroll, NAME, TITLE, DEPARTMENT, TOTAL.EARNINGS)"
+"0","most_pay <- payroll_total %>%"
+"0","arrange(desc(TOTAL.EARNINGS)) %>%"
+"0","head(1)"
+"0","least_pay <- payroll_total %>%"
+"0","  arrange(TOTAL.EARNINGS) %>%"
+"0","  head(1)"
