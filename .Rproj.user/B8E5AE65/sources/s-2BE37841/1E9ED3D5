@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1535819245459.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "1E9ED3D5",
+    "lastKnownWriteTime" : 1535819439,
+    "last_content_update" : 1535819439257,
+    "path" : "~/Desktop/chunks/07_chunk.Rmd",
+    "project_path" : "07_chunk.Rmd",
+    "properties" : {
+        "cursorPosition" : "8,3",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
